@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Batman vs Superman</title>
+	<meta name="description" content="Batman vs Superman, who would win really?">
+	<meta name="viewport" content="width=device-width, initial-scale=1">             
+    <link rel="stylesheet" href="dist/css/main.min.css">
+</head>
+<body ng-app="BatmanVsSupermanApp" ng-controller="homeCtrl" ng-cloak>
+
+    <!-- START HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 hidden-xs">
+                    <h1>Batman vs Superman</h1>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <button class="btn btn-primary" ng-click="filter('Batman')">Batman</button>
+                    <button class="btn btn-danger" ng-click="filter('Superman')">Superman</button>                    
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER -->
+
+    <div class="loader-module" ng-if="loader">
+        <img src="dist/img/loader.svg" alt="loader">        
+    </div>
+
+    <!-- START IMAGE GRID -->
+    <section class="image-grid container" ng-if="!loader">
+        <div class="row">
+            <div class="col-xs-6 col-sm-2" ng-if="flickrResult" ng-repeat="photo in flickrResult">
+                <a href="{{ photo.url }}_b.jpg" data-lity>
+                    <img ng-src="{{ photo.url }}_q.jpg" alt="{{ photo.title }}">                
+                </a>                
+            </div>
+            <!-- Error message if photos are not being loaded properly -->
+            <div class="col-sm-12 text-center" ng-if="!flickrResult">
+                <div class="alert alert-danger" role="alert" ng-bind="errormsg"></div>
+            </div>
+        </div>      
+    </section>
+    <!-- END IMAGE GRID -->
+
+    <!-- START FOOTER -->
+    <footer class="footer" ng-if="!loader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p ng-bind="desc"></p>        
+                </div>
+            </div>
+        </div>
+    </footer>  
+    <!-- END FOOTER -->  
+
+    <script src="dist/js/bundle.min.js"></script>  
+</body>
+</html>
+
+

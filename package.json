@@ -1,0 +1,45 @@
+{
+  "name": "BatmanVsSuperman",
+  "version": "1.0.0",
+  "author": "Alexander Claeson",
+  "description": "Batman vs Superman, who would win really?",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alecla/BatmanVsSuperman.git"
+  },
+  "dependencies": {
+    "angular": "^1.4.9",
+    "angular-animate": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "browserify": "^13.0.0",
+    "clean-css": "^3.4.9",
+    "http-server": "^0.8.5",
+    "imagemin": "^4.0.0",
+    "imagemin-newer": "^1.0.1",
+    "jquery": "^2.2.0",
+    "jshint": "^2.9.1",
+    "less": "^2.6.0",
+    "lity": "^1.6.1",
+    "livereload": "^0.3.7",
+    "npm-run-all": "^1.2.11",
+    "uglify-js": "^2.6.1",
+    "watch": "^0.17.1"
+  },
+  "scripts": {
+    "server:livereload": "livereload ./app -i 200",
+    "server:serve": "http-server ./app -ssl --cors -p 8080",
+    "prestart": "npm install",
+    "start": "npm-run-all --parallel server:serve build:watch",
+    "lint": "jshint ./app/dev/js/app.js",
+    "build:img": "imagemin ./app/dev/img/ ./app/dist/img/",
+    "watch:img": "watch 'npm run build:img' ./app/dev/img",
+    "build:js": "browserify ./app/dev/js/app.js > ./app/dist/js/bundle.js",
+    "build:jsmin": "browserify ./app/dev/js/app.js > ./app/dist/js/bundle.js && uglifyjs ./app/dist/js/bundle.js > ./app/dist/js/bundle.min.js",
+    "watch:js": "watch 'npm run build:js' ./app/dev/js/",
+    "build:css": "lessc ./app/dev/css/main.less > ./app/dist/css/main.css",
+    "build:cssmin": "lessc ./app/dev/css/main.less > ./app/dist/css/main.css && cleancss ./app/dist/css/main.css > ./app/dist/css/main.min.css",
+    "watch:css": "watch 'npm run build:css' ./app/dev/css/",
+    "build:watch": "npm-run-all --parallel watch:js watch:css watch:img",
+    "build": "npm-run-all lint --parallel build:cssmin build:jsmin build:img"
+  }
+}
