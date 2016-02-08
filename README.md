@@ -1,6 +1,7 @@
 ###BatmanVsSuperman###
-
 Batman vs Superman, who would win really?
+
+Simple web app built with AngularJS and Bootstrap, using flickR API to fetch photos with query Batman and Superman.
 
 Built with NPM as task runner.
 
