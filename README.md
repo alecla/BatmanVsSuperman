@@ -6,9 +6,9 @@ Simple web app built with AngularJS and Bootstrap, using flickR API to fetch pho
 Built with NPM as task runner.
 
 HOW-TO:
-1. cd in to folder
-2. npm install
-3. npm run build
-4. npm run server:serve
+  1. cd in to folder
+  2. npm install
+  3. npm run build
+  4. npm run server:serve
 
 Enjoy!
