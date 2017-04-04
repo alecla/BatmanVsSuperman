@@ -11,6 +11,9 @@ Built with NPM as task runner.
 # install dependencies
 npm install
 
+# build
+npm run build
+
 # server
 npm run server:serve
 ```
