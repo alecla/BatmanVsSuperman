@@ -1,14 +1,18 @@
-###BatmanVsSuperman###
+# BatmanVsSuperman
 Batman vs Superman, who would win really?
 
+## What is this?
 Simple web app built with AngularJS and Bootstrap, using flickR API to fetch photos with query Batman and Superman.
-
 Built with NPM as task runner.
 
-HOW-TO:
-  1. cd in to folder
-  2. npm install
-  3. npm run build
-  4. npm run server:serve
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# server
+npm run server:serve
+```
 
 Enjoy!
